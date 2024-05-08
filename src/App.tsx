@@ -28,11 +28,13 @@ function App() {
 
 
   return (
-    <div>
-      <h1>Ask a question</h1>
-      <form onSubmit={handleSubmit}>
-        <input id="query" type="text" value={query} onChange={handleChange} />
-        <button type="submit">Query</button>
+    <div className='bg-gradient-to-r from-black from-75% via-gray-950 via-15% to-gray-800 to-5%'>
+      <div className='inline-block'>
+        <h1 className='text-neutral-100 text-7xl hover:blur-xl text-center mt-64'>Ask a question</h1>
+      </div>
+      <form className='text-white' onSubmit={handleSubmit}>
+        <input className='rounded-md outline outline-neutral-100 h-36 w-56' id="query" type="text" value={query} onChange={handleChange} />
+        <button type="submit" className='px-6 rounded-md ring ring-blue-300 outline outline-amber-50 outline-offset-2 hover:ring-blue-950'>Query</button>
       </form>
       <div id="answer">{answer}</div>
     </div>
