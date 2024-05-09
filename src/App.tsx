@@ -4,10 +4,17 @@ import React, { useState } from 'react';
 function App() {
   const [query, setQuery] = useState<string>('');
   const [answer, setAnswer] = useState<string>('');
+  const [placeHolder, setPlaceHolder] = useState<string>('Breathe In Breate Out...');
+  const [button, setButton] = useState<string>('Submit');
+  //const [isClicked,setIsClicked] = useState<boolean>(false);
+ // const [isInput,setIsInput] = useState<string>('');
+ // const [isOutput, setIsOutput] = useState<string>('');
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setAnswer("Thinking...")
+    e.preventDefault();
+    setPlaceHolder("Thinking...");
+    setButton('Loading');
     const response = await fetch('http://localhost:8000', {
       method: 'POST',
       headers: {
@@ -25,20 +32,24 @@ function App() {
     setQuery(e.target.value);
   };
 
-
+  
 
   return (
-    <div className='bg-gradient-to-r from-black from-75% via-gray-950 via-15% to-gray-800 to-5%'>
-      <div className='inline-block'>
-        <h1 className='text-neutral-100 text-7xl hover:blur-xl text-center mt-64'>Ask a question</h1>
+    <div className='bg-gradient-to-r from-black from-10% via-teal-900 via 20% to-gray-950  min-h-screen'>
+      <div className='flex justify-center h-1/2'>
+        <h1 className='transition ease-in-out delay-75 text-neutral-100  select-none text-7xl  hover:scale-110 hover:-trasnlate-y-1'>Ask a question</h1>
+      </div>                                                                        
+      <div className='h-1/2 pt-9'>
+        <form onSubmit={handleSubmit} className='flex justify-center -space-x-14 '>
+          <input required spellCheck className='bg-black text-teal-800  rounded-md outline outline-2 outline-teal-500/50 h-12 mr-36 placeholder:placeholder  placeholder-teal-800 w-1/4' id="query" type="text" value={query} onChange={handleChange} placeholder='Enter Your Question' />
+          <button id="btn" type="submit" className='transition ease-in-out delay-75 duration-100 hover:scale-110 hover:-transalte-y-1 px-6 rounded-lg  outline outline-teal-600 hover:outline-teal-700 outline-offset-2 text-zinc-900 '>{button}</button>
+        </form>
       </div>
-      <form className='text-white' onSubmit={handleSubmit}>
-        <input className='rounded-md outline outline-neutral-100 h-36 w-56' id="query" type="text" value={query} onChange={handleChange} />
-        <button type="submit" className='px-6 rounded-md ring ring-blue-300 outline outline-amber-50 outline-offset-2 hover:ring-blue-950'>Query</button>
-      </form>
-      <div id="answer">{answer}</div>
+      <div className='flex justify-center mt-9 grow '>
+        <textarea readOnly className='bg-black text-teal-800 transition rounded-md outline outline-teal-700 outline-2 placeholder-teal-800' rows={25} cols={50} placeholder={placeHolder}>{answer}</textarea>
+      </div>
     </div>
-  );
+  ); 
 };
 
 export default App

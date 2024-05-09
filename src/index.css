@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');*/ 
 
-
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap'); 
 *{
   box-sizing: border-box;
   padding: 0;
@@ -8,5 +8,18 @@
 }
 
 h1{
-  font-family:"Bebas Neue",sans-serif;
+  font-family:"Michroma",sans-serif;
+}
+button{
+  font-family:"Michroma",sans-serif;
+}
+
+input, textarea{ 
+  font-family: "Michroma",sans-serif;
+}
+
+
+::placeholder{
+  font-family: "Michroma";
+  font-weight:70;
 }
