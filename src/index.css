@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 
-@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap'); 
+/*@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');*/ 
 *{
   box-sizing: border-box;
   padding: 0;
@@ -12,10 +12,10 @@
 }
 
 h1{
-  font-family:"Michroma",sans-serif;
+  font-family:"Michroma",sans-serif;                      
 }
 button{
-  font-family:"Michroma",sans-serif;
+  font-family:"Michroma",sans-serif ;
 }
 
 input, textarea{ 
