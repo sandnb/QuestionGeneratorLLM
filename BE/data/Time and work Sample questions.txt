@@ -1,0 +1,137 @@
+Time and work problems involve calculating how much work can be completed by a group of people working together within a certain time frame. Here's a breakdown of the theory for the topic "Time and Work":
+
+*Basic Formula*:
+ Work = Rate * Time
+
+*Rate of Work*:
+ Rate of work is the amount of work done per unit time by an individual or a group.
+ It is usually represented as "1 unit of work per x hours" or "x units of work per hour".
+ For example, if a person can complete a task in 5 hours, their rate of work is 1/5 of the task per hour.
+
+*Reciprocal Relationship*:
+ If a person can complete a task in x hours, their rate of work is 1/x of the task per hour.
+ Conversely, if a person's rate of work is 1/y of the task per hour, they can complete the task in y hours.
+
+*Work Done Together*:
+ When multiple people work together, their rates of work are added to find the combined rate.
+ For example, if person A can complete a task in 4 hours and person B can complete it in 6 hours, then working together, their combined rate is 1/4 + 1/6 of the task   per hour.
+
+*Time Taken Together*:
+ The time taken to complete a task together is inversely proportional to the combined rate of work.
+ If the combined rate is r, then the time taken is 1/r hours.
+
+*Fractional Part Method*:
+ Sometimes, tasks are divided into equal parts, and each person's contribution to each part is considered.
+ For example, if A can complete a task in 4 hours and B in 6 hours, together they complete 1/4 + 1/6 of the task in one hour.
+
+*Efficiency*:
+ Efficiency is another term used interchangeably with the rate of work.
+ It represents how effectively a person or group can complete a task within a given time frame.
+
+*Work Done by a Group with Different Rates*:
+ If different individuals work at different rates, the total work done is the sum of each individual's work.
+
+*Work Done by a Group Working in Shifts*:
+ If a group works in shifts, the total work done is the sum of the work done in each shift.
+
+*Time Taken to Complete a Remaining Part*:
+ If a certain amount of work is left incomplete, the time needed to complete the remaining work can be calculated using the same principles applied to the total work.
+
+Understanding these concepts will help in solving various types of time and work problems efficiently. Practice with different scenarios and variations to reinforce your understanding.
+
+Tips : To make our calculation easy, sometimes it is advisable to Convert the given fractions into Least common multiple(LCM).
+
+
+
+
+
+Question 1 : Two taps A and B can fill a cistern in 42 and 56 minutes respectively.
+If both the taps are opened together, then find the time taken to fill the
+cistern.
+
+Answer Explanation : 
+"Cistern capacity = LCM (42,56) = 168 litres.
+Capacity of A = 4 litres per minute.
+Capacity of B = 3 litres per minute.
+Net filling = 4+3 = 7 litres per minute.
+Time required to fill cistern = 168/7 = 24 minutes."
+
+
+Question 2 :"A cistern is fitted with three taps, namely p, q, and r. P and Q can fill a cistern in 10 and 15 minutes respectively whereas R ( emptying tap fitted at the bottom of the cistern ) can empty it in 12 minutes. If all the three pipes are kept open, in how much time will the cistern be filled?
+"
+"Tank capacity = LCM (10,15,12) = 60 litres
+Capacity of P & Q = 6 & 4 litres per minute.
+Capacity of R = -5 litres per minute.
+Net filling = 6+4-5 = 5 litres per minute.
+Time required to fill cistern = 60/5 = 12 minutes.
+"
+
+Question 3 :"A cistern generally takes 20 minutes to be filled by a pipe, but due to a leak, it takes 10 extra minutes to get filled. Find the time in which the leak alone can empty the cistern filled with water."
+
+Answer Explanation : 
+"Fill = 20 minutes
+Fill + leak = 30 minutes.
+Tank capacity = LCM (20,30) = 60 litres.
+Capacity of filling = 3 litres per minute.
+Capacity of filling & leak together = 2 litres per minute.
+So, leak capacity = 1 litre per minute.
+So, leak alone will empty the tank in 60 minutes.
+"
+
+Question 4 :"Two taps X and Y can fill a cistern in 32 and 40 minutes respectively. Both the taps are opened into the empty cistern and after sometime tap X is closed. Tap Y alone fills the remaining portion of the cistern. If it took 25 minutes to fill the tank, for how much time (min) was tap X kept open?"
+
+Answer Explanation : 
+"Tank capacity = LCM (32,40) = 160 litres.
+Capacity of X = 5 litres per minute.
+Capacity of Y = 4 litres per minute.
+For the entire 25 minutes, pipe Y is working. So, it fills 100 litres.
+Remaining 60 litres filled by X in (60/5) minutes.
+So, X is opened for 12 minutes.
+"
+
+Question 5 :"Tap X and Y can fill a tank in 30 and 40 minutes respectively. Tap Z can empty the filled tank in 60 minutes. If all the three taps are kept open for one minute each, how much time (min) will the taps take to fill the tank?"
+
+Answer Explanation : 
+"Tank capacity = LCM (30,40,60) = 120 litres.
+Capacity of A = 4 litres per minute
+Capacity of B = 3 litres per minute
+Capacity of C = -2 litres per minute.
+If all the pipes opened for 1 minute each, net capacity = 5 litres/ 3 minutes.
+After 69 minutes, quantity of water = 115 litres.
+After 70th minute, quantity of water = 119 litres.
+Next, pipe B will be opened. To fill remaining 1 litre with the help of B we need 1/3rd of the minute.
+So, Answer is 70 minutes 20 seconds.
+"
+
+Question 6 :"Pipe A, B and C are kept open and together fill a tank in t minutes. Pipe A is kept open throughout, pipe B is kept open for the first 10 minutes and then closed. Two minutes after pipe B is closed, pipe C is opened and is kept open till the tank is full. Each pipe fills an equal share of the tank. Furthermore, it is known that if pipe A and B are kept open continuously, the tank would be filled completely in t minutes. How long will C alone take to fill the tank?
+"
+Question 7 :"Pipes A, B and C can fill a tank in 30, 60 and 120 minutes respectively. Pipes B and C are kept open for 10 minutes, and then Pipe B is shut while Pipe A is opened. Pipe C is closed 10 minutes before the tank overflows. How long does it take to fill the tank?
+"
+Question 8 :"A tank is fitted with 8 pipes, some of which that fill the tank and others that empty the tank. Each of the pipes that fills the tank fills it in 8 hours, while each of those that empty the tank empties it in 6 hours. If all the pipes are kept open when the tank is full, it will take 6 hours to drain the tank. How many of these are fill pipes?
+"
+Question 9 :"Bibhor takes 3 hours to fetch as much water as Ahmed can fetch in 2 hours. Deepak takes 5 hours to fetch as much water as Bibhor can fetch in 4 hours. A tank takes 20 hours to fill if all work together. What time would Bibhor take to fill the tank alone? 
+"
+Question 10 :"A large tanker can be filled by two pipes P and Q in 60 minutes and 40 minutes respectively. How many minutes will it take to fill the tanker from empty state, if Q is used for half the time and P and Q fill it together for other half?
+"
+Question 11 :"A cistern of capacity 40 litres has an inlet and an outlet pipe. When both the pipes are opened at once, it takes 8 minutes to fill the cistern. However, if the outflow rate is increased 1.5 times, the cistern never gets filled. Which of the following can be the outflow rate?
+"
+Question 12 :"A tap requires 18 hours to fill a tank. On a particular day, it was noticed
+that 18 hours after the tap was turned open, the tank was not filled due
+to leak at the bottom of the tank. The leak was plugged and it took the 
+tap 3 more hours to fill the tank. Working alone, how long will the leak
+take to empty the tank?
+"
+Question 13 :"Two taps X and Y can fill a cistern in 32 and 40 minutes respectively.
+Both the taps are opened into the empty cisterns and after some time 
+tap X is closed. Tap Y alone fills the remaining portion of the cistern.
+If it took 25 minutes to fill the tank, for how much time was tap X kept
+open?
+"
+Question 14 :"If A and B are opened as inlet pipe into the cistern and C and D are opened as outlet pipes from the cistern and all the four pipes are opened simultaneously, how many hours will it take to fill the cistern completely?
+"
+Question 15 :Two pipes X and Y can fill a tank in 20 minutes and 40 minutes respectively. Both the pipes are opened together but after 5 minutes, pipe X is turned off. How much time  will Y is take to fill the remaining part of the tank?
+Question 16 :Pipes X and Y can fill a tank in 4 and 8 hours respectively. Pipe Z can empty it in 10 hours. If all three pipes are opened together, then the tank will be filled in how many hours?
+Question 17 :A pipe can fill a tank with water in 1hr .Because of leak ,it took 1 hr 10 mins to fill the tank.The leak can drain all the water from the tank in.
+Question 18 :Two pipes X and Y together can fill a cistern in 2 hours. Had they been opened separately, then Y would have taken  3 hours more than X to fill the cistern. How much time will be taken by X to fill the cistern separately?
+Question 19 : Time taken by pipe A alone to fill the tank be 10 minutes. If pipe B alone takes 40 minutes to fill the tank, and both pipes A and B are used together, how long will it take to fill the tank?
+Question 20 :Three pipes fill a water tank in 6 hrs.If two of them take 24 hrs and  12 hrs each to fill the water tank ,how many hours will the third pipe take to fill the water tank?
