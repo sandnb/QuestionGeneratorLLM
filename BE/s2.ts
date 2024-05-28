@@ -1,4 +1,4 @@
-import { OpenAI, Settings } from "llamaindex";
+import { OpenAI, Settings, OpenAIEmbedding } from "llamaindex";
 import { Document, VectorStoreIndex, SimpleDirectoryReader } from "llamaindex";
 import dotenv from "dotenv";
 import express from "express";
@@ -8,14 +8,23 @@ const app = express();
 dotenv.config({ path: "./api.env" });
 
 
-Settings.llm = new OpenAI({ model: "gpt4", temperature: 0 });
+const customLLM = new OpenAI({ model: "gpt4", temperature: 0 });
 
-//const Document = SimpleDirectoryReader.load('./data');
+const customEmbedModel = new OpenAIEmbedding({
+  model: "text-embedding-3-large",
+});
 
-//const index = VectorStoreIndex.fromDocuments(document);
+//console.log(customLLM,customEmbedModel);
 
 
 
+
+
+const reader = new SimpleDirectoryReader();
+
+const document = await reader.loadData("./data");
+
+//console.log(document);
 
 
 
