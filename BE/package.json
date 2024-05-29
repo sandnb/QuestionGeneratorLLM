@@ -1,7 +1,7 @@
 {
-  "type":"module",
-  "scripts":{
-    "dev":"nodemon"
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
