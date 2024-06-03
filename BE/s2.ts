@@ -2,6 +2,7 @@ import { OpenAI, Settings, OpenAIEmbedding } from "llamaindex";
 import { serviceContextFromDefaults, SimpleResponseBuilder , ResponseSynthesizer  } from "llamaindex";
 import { VectorIndexRetriever, RetrieverQueryEngine  } from "llamaindex";
 import { Document, VectorStoreIndex, SimpleDirectoryReader } from "llamaindex";
+import { SentenceSplitter } from "llamaindex";
 import dotenv from "dotenv";
 import express from "express";
 
@@ -13,6 +14,7 @@ dotenv.config({ path: "./api.env" });
 const reader = new SimpleDirectoryReader();
 
 const document = await reader.loadData("./data");
+
 
 const index = await VectorStoreIndex.fromDocuments(document);
 
@@ -36,8 +38,7 @@ const customPrompt = function({context="",query=""}){
                --------------------------------------------
                ${context},
                ---------------------------------------------
-               Given context info. answer query. Include a new random
-               fact about origins of Indian Cinema Industry in your answer everytime.
+               Given context info,answer query
                  Query: ${query}
                 Answer:`);
 };
@@ -73,7 +74,9 @@ const customQueryEngine = new RetrieverQueryEngine(
 //});
 
 
-const response = await customQueryEngine.query({ query:"Give me 10 Questions in the fill in the blancks on the data" });
+const response = await customQueryEngine.query({ 
+  query:"Give me context of the data." 
+});
  console.log(response);
 
 //console.log(response);
