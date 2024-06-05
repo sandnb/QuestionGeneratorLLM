@@ -2,7 +2,7 @@ import { OpenAI, Settings, OpenAIEmbedding } from "llamaindex";
 import { serviceContextFromDefaults, SimpleResponseBuilder , ResponseSynthesizer  } from "llamaindex";
 import { VectorIndexRetriever, RetrieverQueryEngine  } from "llamaindex";
 import { Document, VectorStoreIndex, SimpleDirectoryReader } from "llamaindex";
-import { SentenceSplitter } from "llamaindex";
+import { SimpleNodeParser, RouterQueryEngine, SummaryIndex } from "llamaindex";
 import dotenv from "dotenv";
 import express from "express";
 
@@ -10,28 +10,36 @@ const app = express();
 
 dotenv.config({ path: "./api.env" });
 
-
-const reader = new SimpleDirectoryReader();
-
-const document = await reader.loadData("./data");
-
-
-const index = await VectorStoreIndex.fromDocuments(document);
-
-
-
-const customLLM = new OpenAI({ model: "gpt-4", temperature: 0 });
+const customLLM = new OpenAI({ model: "gpt-4", temperature: 0, topP:2 });
 
 const customEmbedModel = new OpenAIEmbedding({
   model: "text-embedding-3-large",
 });
 
-//console.log(customLLM,customEmbedModel);
+Settings.nodeParser = new SimpleNodeParser({
+  chunkSize:1024,
+  splitLongSentences:true,
+});
+
+//console.log(Settings.nodeParser);
+
+const document = await new SimpleDirectoryReader().loadData({
+  directoryPath: "./data",
+});
+
+const vectorIndex = await VectorStoreIndex.fromDocuments(document);
+
+//console.log(vectorIndex);
+
+const summaryIndex = await SummaryIndex.fromDocuments(document);
 
 const customServiceContext = new serviceContextFromDefaults({
   llm:customLLM,
   embedModel: customEmbedModel,
+  nodeParser: Settings.nodeParser,
 });
+
+//console.log(customServiceContext);
 
 const customPrompt = function({context="",query=""}){
           return(`context information is provided below
@@ -53,34 +61,46 @@ const customResponseBuilder = new SimpleResponseBuilder(
 
 const customSynthesizer = new ResponseSynthesizer({
   responseBuilder : customResponseBuilder,
-  serviceContext  : customServiceContext
+  serviceContext  : customServiceContext ,
 });
 
 //console.log(customSynthesizer);
 
-const customRetriever = new VectorIndexRetriever({index});
+const customRetriever = new VectorIndexRetriever({ 
+  index:vectorIndex,
+  serviceContext: customServiceContext,
+});
 
-//console.log(customRetriever);
 
 const customQueryEngine = new RetrieverQueryEngine(
   customRetriever,
-  customSynthesizer
+  customSynthesizer,
 );
+
+const summaryQueryEngine = summaryIndex.asQueryEngine();
 
 //console.log(customQueryEngine);
 
-//let response = await customQueryEngine.query({
- // query : "Summarize the data given to you.",
-//});
 
-
-const response = await customQueryEngine.query({ 
-  query:"Give me context of the data." 
+const queryEngine = RouterQueryEngine.fromDefaults({
+  queryEngineTools : [
+    {
+      queryEngine: customQueryEngine,
+      description: "Useful for retrieving specific questions related to given data",
+    },
+    {
+      queryEngine: summaryQueryEngine,
+      description: "Useful for summarization questions related to given data",
+    },
+  ],
 });
- console.log(response);
 
-//console.log(response);
 
+let response = await queryEngine.query({
+  query : "Tell me what is polymorphism on a high-level",
+});
+
+console.log(response.toString());
 
 
 
